@@ -374,7 +374,7 @@ namespace Lab03
 
         private bool scale = false;
 
-        //ВОПРОС
+      
         private void AlgorithWithMatrix()
         {
             int i = 0;
@@ -518,7 +518,7 @@ namespace Lab03
         Point p1;
         Point p2;
 
-        //Вопрос
+        
         private Vector FindNormalVector(Point p1, Point p2)
         {       
             return new Vector(p2.Y - p1.Y, p1.X - p2.X);
@@ -615,7 +615,7 @@ namespace Lab03
             convex = !convex;
             hint.Visible = true;
         }
-
+        //выпуклый обхожу фигуру точка всегда находится с одной и той же стороны для каждого ребра 
         private bool InsideConvex(int x, int y)
         {
             int i = 0;
@@ -638,7 +638,8 @@ namespace Lab03
             result = (prev == CheckSide(x, y));
             return result;            
         }
-
+        //невыпуклый выпускается луч вправо, считает сколько раз он пересекает стороны полигона, если четное, то снаружи, если нечетное, то внутри
+        //если стороны по x левее нашей точки, то мы их не рассматриваем, остальные рассматриваем
         private bool InsideNonConvex(int x, int y)
         {
             int count = 0;
